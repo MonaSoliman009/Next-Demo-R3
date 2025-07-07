@@ -9,7 +9,7 @@ export const metadata = {
 
 export default async function page() {
 
-  const res = await fetch('https://fakestoreapi.com/productdsdsdsds')
+  const res = await fetch('https://fakestoreapi.com/products')
   const data = await res.json()
   console.log(data);
 
