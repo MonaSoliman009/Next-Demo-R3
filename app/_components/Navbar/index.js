@@ -9,7 +9,11 @@ const links = [
     { name: 'About', path: '/about' },
     { name: 'Contact', path: '/contact' },
     { name: 'Products', path: '/products' },
-    { name: 'Login', path: '/login' }
+    { name: 'Login', path: '/login' },
+    { name: 'CSR', path: '/csr' },
+    { name: 'SSR', path: '/ssr' },
+    { name: 'SSG', path: '/ssg' },
+    { name: 'ISR', path: '/isr' }
 ]
 export default function Navbar() {
     const pathname = usePathname()
@@ -17,7 +21,7 @@ export default function Navbar() {
 
     return (
         <div className="bg-neutral-400 py-4">
-            {links.map((link) => <Link href={link.path} key={link.name} className={`mr-4 font-bold ${(pathname==link.path)?'text-green-900':''}`}>{link.name}</Link>)}
+            {links.map((link) => <Link href={link.path} key={link.name} className={`mr-4 font-bold ${(pathname == link.path) ? 'text-green-900' : ''}`}>{link.name}</Link>)}
         </div>
     )
 }

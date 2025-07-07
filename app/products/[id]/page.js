@@ -1,23 +1,28 @@
-"use client"
 
-import { useParams } from "next/navigation"
-import { useState, useEffect } from "react"
+async function getSingleProduct(id) {
+    const res = await fetch(`https://fakestoreapi.com/products/${id}`)
+    const data = await res.json()
+    return data
+}
 
-export default  function page() {
-    //    const {id}= await params
+async function getAllProduct() {
+    const res = await fetch(`https://fakestoreapi.com/products`)
+    const data = await res.json()
+    return data
+}
 
-    const { id } = useParams()
+export async function generateStaticParams() {
+    const products = await getAllProduct()
+    const ids = products.map((prd) => { return { id: prd.id.toString() } })//
+    return ids //[{id:"1",{id:"2"}},..............]
+}
+
+export default async function page({ params }) {
+    const { id } = await params
+
+    const product = await getSingleProduct(id)
 
 
-    const [product, setProduct] = useState({})
-    const getProduct = async () => {
-        const res = await fetch(`https://fakestoreapi.com/products/${id}`)
-        const data = await res.json()
-        setProduct(data)
-    }
-    useEffect(() => {
-        getProduct()
-    }, [])
     return (
         <div>
             <h2>{product.title}</h2>
