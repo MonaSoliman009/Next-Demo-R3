@@ -8,6 +8,7 @@ async function getData() {
 export default async function page() {
 
     const data = await getData()
+    console.log(process.env.NEXT_PUBLIC_APIURL);
 
     return (
         <>

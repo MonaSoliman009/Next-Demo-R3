@@ -4,7 +4,7 @@ import mongoose from "mongoose";
 
 export function dbConnection(){
 
-    mongoose.connect("mongodb://127.0.0.1:27017/openSourceDB").then(()=>{
+    mongoose.connect(process.env.DB_URL).then(()=>{
         console.log("connected to db successfuly");
         
     }).catch((err)=>{
