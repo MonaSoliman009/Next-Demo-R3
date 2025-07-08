@@ -13,7 +13,10 @@ const links = [
     { name: 'CSR', path: '/csr' },
     { name: 'SSR', path: '/ssr' },
     { name: 'SSG', path: '/ssg' },
-    { name: 'ISR', path: '/isr' }
+    { name: 'ISR', path: '/isr' },
+     { name: 'Todos', path: '/todos' },
+     { name: 'Add Todo', path: '/todos/add' },
+
 ]
 export default function Navbar() {
     const pathname = usePathname()

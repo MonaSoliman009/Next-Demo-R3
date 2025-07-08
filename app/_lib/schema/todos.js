@@ -13,6 +13,6 @@ const todosSchema=mongoose.Schema({
 })
 
 
-const todosModel=mongoose.model('todo',todosSchema)
+const todosModel=mongoose.models.todo|| mongoose.model('todo',todosSchema)
 
 export default todosModel

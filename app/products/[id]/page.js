@@ -17,6 +17,22 @@ export async function generateStaticParams() {
     return ids //[{id:"1",{id:"2"}},..............]
 }
 
+
+// export const metadata={
+//     title:"Product Details",
+//     description:"this is details page"
+// }
+
+
+export async function generateMetadata({params:{id}}){
+             
+ const product = await  getSingleProduct(id)  
+    return {
+        title:product.title,
+        description:product.description
+    }
+}
+
 export default async function page({ params }) {
     const { id } = await params
 
