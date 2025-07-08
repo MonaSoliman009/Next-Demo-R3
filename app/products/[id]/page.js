@@ -24,12 +24,12 @@ export async function generateStaticParams() {
 // }
 
 
-export async function generateMetadata({params:{id}}){
-             
- const product = await  getSingleProduct(id)  
+export async function generateMetadata({ params }) {
+    let { id } = await params
+    const product = await getSingleProduct(id)
     return {
-        title:product.title,
-        description:product.description
+        title: product.title,
+        description: product.description
     }
 }
 
